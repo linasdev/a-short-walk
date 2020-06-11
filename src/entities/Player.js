@@ -1,25 +1,52 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
-import {StyleSheet, View} from 'react-native';
+import SpriteSheet from 'rn-sprite-sheet';
+import {ANIMATION_FPS} from '../constants';
 
-const Player = ({dimensions: {width, height}}) => {
-  return <View style={[styles.player, {left: width / 2, top: height / 2}]} />;
+const Player = ({position: {x, y}, size}) => {
+  const [animationRef, setAnimationRef] = useState();
+
+  animationRef &&
+    animationRef.play({
+      type: 'idle_side',
+      fps: ANIMATION_FPS,
+      loop: true,
+    });
+
+  return (
+    <SpriteSheet
+      ref={setAnimationRef}
+      source={require('../assets/character.png')}
+      columns={64}
+      rows={4}
+      height={size}
+      viewStyle={[styles.view, {left: x, top: y}]}
+      imageStyle={styles.image}
+      animations={{
+        idle_front: Array.from({length: 48}, (_, i) => i),
+        run: Array.from({length: 12}, (_, i) => i + 64),
+        walk: Array.from({length: 32}, (_, i) => i + 128),
+        idle_side: Array.from({length: 41}, (_, i) => i + 192),
+      }}
+    />
+  );
 };
 
 Player.propTypes = {
-  dimensions: PropTypes.shape({
-    width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
+  position: PropTypes.shape({
+    x: PropTypes.number.isRequired,
+    y: PropTypes.number.isRequired,
   }).isRequired,
+  size: PropTypes.number.isRequired,
 };
 
 const styles = StyleSheet.create({
-  player: {
+  view: {
     position: 'absolute',
-    backgroundColor: 'pink',
-    width: 20,
-    height: 20,
-    borderRadius: 20,
+  },
+  image: {
+    marginTop: -1,
   },
 });
 
