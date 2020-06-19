@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet} from 'react-native';
-import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
+import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource';
 import PropTypes from 'prop-types';
 import SpriteSheet from 'rn-sprite-sheet';
 import {
   PLAYER_HEIGHT,
+  PLAYER_POSITION,
   PLAYER_SHEET,
   PLAYER_SHEET_COLS,
   PLAYER_SHEET_ROWS,
@@ -28,8 +29,10 @@ const Player = ({dimensions, action}) => {
     }
   }, [action, animationRef]);
 
-  const {width: sheetWidth, height: sheetHeight} = resolveAssetSource(PLAYER_SHEET);
-  
+  const {width: sheetWidth, height: sheetHeight} = resolveAssetSource(
+    PLAYER_SHEET,
+  );
+
   const {width: spriteWidth, height: spriteHeight} = {
     width: sheetWidth / PLAYER_SHEET_COLS,
     height: sheetHeight / PLAYER_SHEET_ROWS,
@@ -52,8 +55,8 @@ const Player = ({dimensions, action}) => {
         // Center the player
         {
           left: (dimensions.width - realWidth) / 2,
-          top: (dimensions.height - realHeight) / 2,
-        }
+          top: dimensions.height * PLAYER_POSITION - realHeight / 2,
+        },
       ]}
       imageStyle={styles.image}
       animations={{
