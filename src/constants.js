@@ -19,3 +19,27 @@ export const PLAYER_SHEET_COLS = 64;
 export const PLAYER_SHEET_ROWS = 8;
 // Framerate of player animation:
 export const PLAYER_ANIM_FPS = 10;
+
+// Background related:
+// Height of the background in-game as a fraction of screen height:
+export const BACKGROUND_HEIGHT = 1;
+// Background 0 spritesheet:
+export const BACKGROUND_SHEET_0 = require('./assets/background0.png');
+// Background 1 spritesheet:
+export const BACKGROUND_SHEET_1 = require('./assets/background1.png');
+// Background 2 spritesheet:
+export const BACKGROUND_SHEET_2 = require('./assets/background2.png');
+// Background 3 spritesheet:
+export const BACKGROUND_SHEET_3 = require('./assets/background3.png');
+// Background 4 spritesheet:
+export const BACKGROUND_SHEET_4 = require('./assets/background4.png');
+// Background 5 spritesheet:
+export const BACKGROUND_SHEET_5 = require('./assets/background5.png');
+// Number of columns in the background spritesheet(s):
+export const BACKGROUND_SHEET_COLS = 1;
+// Number of rows in the background spritesheet(s):
+export const BACKGROUND_SHEET_ROWS = 1;
+// Number of sprites in the background spritesheet(s):
+export const BACKGROUND_SHEET_SPRITES = 1;
+// Framerate of background animation:
+export const BACKGROUND_ANIM_FPS = 5;

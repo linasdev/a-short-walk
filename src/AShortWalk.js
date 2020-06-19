@@ -5,8 +5,15 @@ import {
   DOUBLE_TAP_TIMING,
   PLAYER_WALK_SPEED,
   PLAYER_RUN_SPEED,
+  BACKGROUND_SHEET_0,
+  BACKGROUND_SHEET_1,
+  BACKGROUND_SHEET_2,
+  BACKGROUND_SHEET_3,
+  BACKGROUND_SHEET_4,
+  BACKGROUND_SHEET_5,
 } from './constants';
 import Player from './entities/Player';
+import Background from './entities/Background';
 
 const AShortWalk = () => {
   let [dimensions, setDimensions] = useState(Dimensions.get('window'));
@@ -105,6 +112,48 @@ const AShortWalk = () => {
 
   return (
     <GameLoop style={styles.container} onUpdate={updateHandler}>
+      <Background
+        dimensions={dimensions}
+        playerAction={playerAction}
+        playerPosition={playerPosition}
+        source={BACKGROUND_SHEET_5}
+      />
+
+      <Background
+        dimensions={dimensions}
+        playerAction={playerAction}
+        playerPosition={playerPosition}
+        source={BACKGROUND_SHEET_4}
+      />
+
+      <Background
+        dimensions={dimensions}
+        playerAction={playerAction}
+        playerPosition={playerPosition}
+        source={BACKGROUND_SHEET_3}
+      />
+
+      <Background
+        dimensions={dimensions}
+        playerAction={playerAction}
+        playerPosition={playerPosition}
+        source={BACKGROUND_SHEET_2}
+      />
+
+      <Background
+        dimensions={dimensions}
+        playerAction={playerAction}
+        playerPosition={playerPosition}
+        source={BACKGROUND_SHEET_1}
+      />
+
+      <Background
+        dimensions={dimensions}
+        playerAction={playerAction}
+        playerPosition={playerPosition}
+        source={BACKGROUND_SHEET_0}
+      />
+
       <Player dimensions={dimensions} action={playerAction} />
     </GameLoop>
   );
