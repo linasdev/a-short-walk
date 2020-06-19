@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet} from 'react-native';
+import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
 import PropTypes from 'prop-types';
 import SpriteSheet from 'rn-sprite-sheet';
 import {
-  PLAYER_SIZE,
+  PLAYER_HEIGHT,
+  PLAYER_SHEET,
   PLAYER_SHEET_COLS,
   PLAYER_SHEET_ROWS,
   PLAYER_ANIM_FPS,
@@ -26,18 +28,33 @@ const Player = ({dimensions, action}) => {
     }
   }, [action, animationRef]);
 
+  const {width: sheetWidth, height: sheetHeight} = resolveAssetSource(PLAYER_SHEET);
+  
+  const {width: spriteWidth, height: spriteHeight} = {
+    width: sheetWidth / PLAYER_SHEET_COLS,
+    height: sheetHeight / PLAYER_SHEET_ROWS,
+  };
+
+  const {width: realWidth, height: realHeight} = {
+    width: dimensions.height * PLAYER_HEIGHT * (spriteWidth / spriteHeight),
+    height: dimensions.height * PLAYER_HEIGHT,
+  };
+
   return (
     <SpriteSheet
       ref={setAnimationRef}
-      source={require('../assets/player.png')}
+      source={PLAYER_SHEET}
       columns={PLAYER_SHEET_COLS}
       rows={PLAYER_SHEET_ROWS}
-      height={PLAYER_SIZE}
-      viewStyle={{
+      height={realHeight}
+      viewStyle={[
+        styles.view,
         // Center the player
-        left: (dimensions.width - PLAYER_SIZE) / 2,
-        top: (dimensions.height - PLAYER_SIZE) / 2,
-      }}
+        {
+          left: (dimensions.width - realWidth) / 2,
+          top: (dimensions.height - realHeight) / 2,
+        }
+      ]}
       imageStyle={styles.image}
       animations={{
         idle_front: Array.from(
@@ -90,6 +107,9 @@ Player.propTypes = {
 };
 
 const styles = StyleSheet.create({
+  view: {
+    position: 'absolute',
+  },
   image: {
     marginTop: -1,
   },
