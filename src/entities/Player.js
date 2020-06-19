@@ -3,12 +3,13 @@ import {StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import SpriteSheet from 'rn-sprite-sheet';
 import {
+  PLAYER_SIZE,
   PLAYER_SHEET_COLS,
   PLAYER_SHEET_ROWS,
   PLAYER_ANIM_FPS,
 } from '../constants';
 
-const Player = ({position: {x, y}, size, action}) => {
+const Player = ({dimensions, action}) => {
   const [animationRef, setAnimationRef] = useState();
 
   useEffect(() => {
@@ -31,8 +32,12 @@ const Player = ({position: {x, y}, size, action}) => {
       source={require('../assets/player.png')}
       columns={PLAYER_SHEET_COLS}
       rows={PLAYER_SHEET_ROWS}
-      height={size}
-      viewStyle={{left: x, top: y}}
+      height={PLAYER_SIZE}
+      viewStyle={{
+        // Center the player
+        left: (dimensions.width - PLAYER_SIZE) / 2,
+        top: (dimensions.height - PLAYER_SIZE) / 2,
+      }}
       imageStyle={styles.image}
       animations={{
         idle_front: Array.from(
@@ -69,11 +74,10 @@ const Player = ({position: {x, y}, size, action}) => {
 };
 
 Player.propTypes = {
-  position: PropTypes.shape({
-    x: PropTypes.number.isRequired,
-    y: PropTypes.number.isRequired,
+  dimensions: PropTypes.shape({
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
   }).isRequired,
-  size: PropTypes.number.isRequired,
   action: PropTypes.oneOf([
     'idle_front',
     'idle_left',

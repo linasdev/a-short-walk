@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, Dimensions} from 'react-native';
 import {GameLoop} from 'react-native-game-engine';
-import {PLAYER_SIZE, DOUBLE_TAP_TIMING} from './constants';
+import {DOUBLE_TAP_TIMING} from './constants';
 import Player from './entities/Player';
 
 const AShortWalk = () => {
@@ -71,19 +71,9 @@ const AShortWalk = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [controlTouch, dimensions, isRunning]);
 
-  // Center the player
-  const playerPosition = {
-    x: (dimensions.width - PLAYER_SIZE) / 2,
-    y: (dimensions.height - PLAYER_SIZE) / 2,
-  };
-
   return (
     <GameLoop style={styles.container} onUpdate={updateHandler}>
-      <Player
-        position={playerPosition}
-        size={PLAYER_SIZE}
-        action={playerAction}
-      />
+      <Player dimensions={dimensions} action={playerAction} />
     </GameLoop>
   );
 };
