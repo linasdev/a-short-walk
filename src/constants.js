@@ -7,6 +7,10 @@ export const DOUBLE_TAP_TIMING = 200;
 export const PLAYER_HEIGHT = 0.2;
 // Vertical position of the player as a fraction of screen height:
 export const PLAYER_POSITION = 0.69;
+// Walking speed of the player as a fraction of screen height per second:
+export const PLAYER_WALK_SPEED = 0.1;
+// Running speed of the player as a fraction of screen height per second:
+export const PLAYER_RUN_SPEED = 0.2;
 // Player spritesheet:
 export const PLAYER_SHEET = require('./assets/player.png');
 // Number of columns in the player spritesheet:
