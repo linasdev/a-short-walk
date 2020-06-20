@@ -124,7 +124,7 @@ const AShortWalk = () => {
         playerAction={playerAction}
         playerPosition={playerPosition}
         source={BACKGROUND_SHEET_6}
-        parallax={1}
+        parallax={0.94}
       />
 
       <Background
@@ -132,7 +132,7 @@ const AShortWalk = () => {
         playerAction={playerAction}
         playerPosition={playerPosition}
         source={BACKGROUND_SHEET_5}
-        parallax={1}
+        parallax={0.95}
       />
 
       <Background
@@ -140,7 +140,7 @@ const AShortWalk = () => {
         playerAction={playerAction}
         playerPosition={playerPosition}
         source={BACKGROUND_SHEET_4}
-        parallax={1}
+        parallax={0.96}
       />
 
       <Background
@@ -148,7 +148,7 @@ const AShortWalk = () => {
         playerAction={playerAction}
         playerPosition={playerPosition}
         source={BACKGROUND_SHEET_3}
-        parallax={1}
+        parallax={0.97}
       />
 
       <Background
@@ -156,7 +156,7 @@ const AShortWalk = () => {
         playerAction={playerAction}
         playerPosition={playerPosition}
         source={BACKGROUND_SHEET_2}
-        parallax={1}
+        parallax={0.98}
       />
 
       <Player dimensions={dimensions} action={playerAction} />
@@ -166,7 +166,7 @@ const AShortWalk = () => {
         playerAction={playerAction}
         playerPosition={playerPosition}
         source={BACKGROUND_SHEET_1}
-        parallax={1}
+        parallax={0.99}
       />
 
       <Background
