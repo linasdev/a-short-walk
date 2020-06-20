@@ -1,6 +1,6 @@
 // Control related:
 // Max delay between touches that still count as a double-tap (specified in milliseconds):
-export const DOUBLE_TAP_TIMING = 200;
+export const DOUBLE_TAP_TIMING = 400;
 
 // Player related:
 // Height of the player in-game as a fraction of screen height:
@@ -37,6 +37,8 @@ export const BACKGROUND_SHEET_3 = require('./assets/background3.png');
 export const BACKGROUND_SHEET_4 = require('./assets/background4.png');
 // Background 5 spritesheet:
 export const BACKGROUND_SHEET_5 = require('./assets/background5.png');
+// Background 6 spritesheet:
+export const BACKGROUND_SHEET_6 = require('./assets/background6.png');
 // Number of columns in the background spritesheet(s):
 export const BACKGROUND_SHEET_COLS = 1;
 // Number of rows in the background spritesheet(s):

@@ -12,6 +12,7 @@ import {
   BACKGROUND_SHEET_3,
   BACKGROUND_SHEET_4,
   BACKGROUND_SHEET_5,
+  BACKGROUND_SHEET_6,
 } from './constants';
 import Player from './entities/Player';
 import Background from './entities/Background';
@@ -122,8 +123,16 @@ const AShortWalk = () => {
         dimensions={dimensions}
         playerAction={playerAction}
         playerPosition={playerPosition}
+        source={BACKGROUND_SHEET_6}
+        parallax={1}
+      />
+
+      <Background
+        dimensions={dimensions}
+        playerAction={playerAction}
+        playerPosition={playerPosition}
         source={BACKGROUND_SHEET_5}
-        parallax={0.5}
+        parallax={1}
       />
 
       <Background
@@ -131,7 +140,7 @@ const AShortWalk = () => {
         playerAction={playerAction}
         playerPosition={playerPosition}
         source={BACKGROUND_SHEET_4}
-        parallax={0.6}
+        parallax={1}
       />
 
       <Background
@@ -139,7 +148,7 @@ const AShortWalk = () => {
         playerAction={playerAction}
         playerPosition={playerPosition}
         source={BACKGROUND_SHEET_3}
-        parallax={0.7}
+        parallax={1}
       />
 
       <Background
@@ -147,7 +156,7 @@ const AShortWalk = () => {
         playerAction={playerAction}
         playerPosition={playerPosition}
         source={BACKGROUND_SHEET_2}
-        parallax={0.8}
+        parallax={1}
       />
 
       <Player dimensions={dimensions} action={playerAction} />
@@ -157,7 +166,7 @@ const AShortWalk = () => {
         playerAction={playerAction}
         playerPosition={playerPosition}
         source={BACKGROUND_SHEET_1}
-        parallax={0.9}
+        parallax={1}
       />
 
       <Background
