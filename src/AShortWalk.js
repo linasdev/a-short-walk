@@ -90,11 +90,6 @@ const AShortWalk = () => {
 
     // Move the player.
     setPlayerPosition(newPosition);
-    console.log(newPosition);
-    // Math.max(
-    //   Math.min(-playerPosition, realWidth - dimensions.width),
-    //   0,
-    // ),
   };
 
   useEffect(() => {
@@ -128,6 +123,7 @@ const AShortWalk = () => {
         playerAction={playerAction}
         playerPosition={playerPosition}
         source={BACKGROUND_SHEET_5}
+        parallax={0.5}
       />
 
       <Background
@@ -135,6 +131,7 @@ const AShortWalk = () => {
         playerAction={playerAction}
         playerPosition={playerPosition}
         source={BACKGROUND_SHEET_4}
+        parallax={0.6}
       />
 
       <Background
@@ -142,6 +139,7 @@ const AShortWalk = () => {
         playerAction={playerAction}
         playerPosition={playerPosition}
         source={BACKGROUND_SHEET_3}
+        parallax={0.7}
       />
 
       <Background
@@ -149,6 +147,7 @@ const AShortWalk = () => {
         playerAction={playerAction}
         playerPosition={playerPosition}
         source={BACKGROUND_SHEET_2}
+        parallax={0.8}
       />
 
       <Player dimensions={dimensions} action={playerAction} />
@@ -158,6 +157,7 @@ const AShortWalk = () => {
         playerAction={playerAction}
         playerPosition={playerPosition}
         source={BACKGROUND_SHEET_1}
+        parallax={0.9}
       />
 
       <Background
@@ -165,6 +165,7 @@ const AShortWalk = () => {
         playerAction={playerAction}
         playerPosition={playerPosition}
         source={BACKGROUND_SHEET_0}
+        parallax={1}
       />
     </GameLoop>
   );

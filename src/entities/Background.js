@@ -9,7 +9,7 @@ import {
   BACKGROUND_ANIM_FPS,
 } from '../constants';
 
-const Background = ({dimensions, playerPosition, source}) => {
+const Background = ({dimensions, playerPosition, source, parallax}) => {
   const [animationRef, setAnimationRef] = useState();
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const Background = ({dimensions, playerPosition, source}) => {
         styles.view,
         {
           // Move the world, not the player.
-          left: -playerPosition,
+          left: -playerPosition * parallax,
           top: (dimensions.height - realHeight) / 2,
         },
       ]}
@@ -56,6 +56,7 @@ Background.propTypes = {
   }).isRequired,
   playerPosition: PropTypes.number.isRequired,
   source: PropTypes.number.isRequired,
+  parallax: PropTypes.number.isRequired,
 };
 
 const styles = StyleSheet.create({
