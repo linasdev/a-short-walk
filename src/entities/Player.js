@@ -52,7 +52,7 @@ const Player = ({dimensions, action}) => {
       height={realHeight}
       viewStyle={[
         styles.view,
-        // Center the player
+        // Center the player.
         {
           left: (dimensions.width - realWidth) / 2,
           top: dimensions.height * PLAYER_POSITION - realHeight / 2,
