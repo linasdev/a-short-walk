@@ -23,6 +23,8 @@ export const PLAYER_ANIM_FPS = 10;
 // Background related:
 // Height of the background in-game as a fraction of screen height:
 export const BACKGROUND_HEIGHT = 1;
+// Right edge of the world as a fraction of screen height:
+export const BACKGROUND_LIMIT = 13.5;
 // Background 0 spritesheet:
 export const BACKGROUND_SHEET_0 = require('./assets/background0.png');
 // Background 1 spritesheet:

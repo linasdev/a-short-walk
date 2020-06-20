@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet} from 'react-native';
-import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource';
 import PropTypes from 'prop-types';
 import SpriteSheet from 'rn-sprite-sheet';
 import {
@@ -23,17 +22,7 @@ const Background = ({dimensions, playerPosition, source}) => {
     }
   }, [animationRef]);
 
-  const {width: sheetWidth, height: sheetHeight} = resolveAssetSource(source);
-
-  const {width: spriteWidth, height: spriteHeight} = {
-    width: sheetWidth / BACKGROUND_SHEET_COLS,
-    height: sheetHeight / BACKGROUND_SHEET_ROWS,
-  };
-
-  const {width: realWidth, height: realHeight} = {
-    width: dimensions.height * BACKGROUND_HEIGHT * (spriteWidth / spriteHeight),
-    height: dimensions.height * BACKGROUND_HEIGHT,
-  };
+  const realHeight = dimensions.height * BACKGROUND_HEIGHT;
 
   return (
     <SpriteSheet
@@ -46,7 +35,7 @@ const Background = ({dimensions, playerPosition, source}) => {
         styles.view,
         {
           // Move the world, not the player.
-          left: (dimensions.width - realWidth) / 2 - playerPosition,
+          left: -playerPosition,
           top: (dimensions.height - realHeight) / 2,
         },
       ]}

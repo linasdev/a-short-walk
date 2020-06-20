@@ -5,6 +5,7 @@ import {
   DOUBLE_TAP_TIMING,
   PLAYER_WALK_SPEED,
   PLAYER_RUN_SPEED,
+  BACKGROUND_LIMIT,
   BACKGROUND_SHEET_0,
   BACKGROUND_SHEET_1,
   BACKGROUND_SHEET_2,
@@ -82,8 +83,18 @@ const AShortWalk = () => {
     positionDelta *= time.delta; // Decouple movement speed from framerate.
     positionDelta *= 0.001; // Convert time.delta to seconds.
 
+    // Constrain position to the edges of the world
+    let newPosition = playerPosition + positionDelta;
+    newPosition = Math.max(newPosition, 0);
+    newPosition = Math.min(newPosition, BACKGROUND_LIMIT * dimensions.height);
+
     // Move the player.
-    setPlayerPosition(playerPosition + positionDelta);
+    setPlayerPosition(newPosition);
+    console.log(newPosition);
+    // Math.max(
+    //   Math.min(-playerPosition, realWidth - dimensions.width),
+    //   0,
+    // ),
   };
 
   useEffect(() => {
@@ -140,6 +151,8 @@ const AShortWalk = () => {
         source={BACKGROUND_SHEET_2}
       />
 
+      <Player dimensions={dimensions} action={playerAction} />
+
       <Background
         dimensions={dimensions}
         playerAction={playerAction}
@@ -153,8 +166,6 @@ const AShortWalk = () => {
         playerPosition={playerPosition}
         source={BACKGROUND_SHEET_0}
       />
-
-      <Player dimensions={dimensions} action={playerAction} />
     </GameLoop>
   );
 };
