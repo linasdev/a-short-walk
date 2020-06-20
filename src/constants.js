@@ -6,7 +6,7 @@ export const DOUBLE_TAP_TIMING = 200;
 // Height of the player in-game as a fraction of screen height:
 export const PLAYER_HEIGHT = 0.2;
 // Vertical position of the player as a fraction of screen height:
-export const PLAYER_POSITION = 0.69;
+export const PLAYER_POSITION = 0.8;
 // Walking speed of the player as a fraction of screen height per second:
 export const PLAYER_WALK_SPEED = 0.1;
 // Running speed of the player as a fraction of screen height per second:
